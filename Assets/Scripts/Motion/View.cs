@@ -28,11 +28,11 @@ namespace Motion
         private Vector2 TargetCharacterDirection { get { return this.targetCharacterDirection; } set { this.targetCharacterDirection = value; } }
 
         [Header("References")]
-        [SerializeField] private Transform verticalTargetTransform;
-        private Transform VerticalTargetTransform { get { return this.verticalTargetTransform; } set { this.verticalTargetTransform = value; } }
+        [SerializeField] private Transform pitch;
+        public Transform Pitch { get { return this.pitch; } private set { this.pitch = value; } }
 
-        [SerializeField] private Transform horizontalTargetTransform;
-        private Transform HorizontalTargetTransform { get { return this.horizontalTargetTransform; } set { this.horizontalTargetTransform = value; } }
+        [SerializeField] private Transform yaw;
+        public Transform Yaw { get { return this.yaw; } private set { this.yaw = value; } }
 
         [SerializeField] private InputController input;
         public InputController Input { get { return input; } private set { this.input = value; } }
@@ -46,12 +46,12 @@ namespace Motion
         private void Start()
         {
             // Set target direction to the camera's initial orientation.
-            if (this.VerticalTargetTransform != null)
-                this.targetDirection = this.VerticalTargetTransform.localRotation.eulerAngles;
+            if (this.Pitch != null)
+                this.TargetDirection = this.Pitch.localRotation.eulerAngles;
 
             // Set target direction for the character body to its inital state.
-            if (this.HorizontalTargetTransform != null)
-                this.targetCharacterDirection = this.HorizontalTargetTransform.localRotation.eulerAngles;
+            if (this.Yaw != null)
+                this.TargetCharacterDirection = this.Yaw.localRotation.eulerAngles;
 
             //Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
@@ -88,16 +88,16 @@ namespace Motion
             if (this.ViewClamp.y < 360)
                 mousePosition.y = Mathf.Clamp(mousePosition.y, -this.ViewClamp.y * 0.5f + this.ViewClampOffset.y, this.ViewClamp.y * 0.5f + this.ViewClampOffset.y);
 
-            if (this.VerticalTargetTransform != null)
+            if (this.Pitch != null)
             {
                 var rotation = Quaternion.AngleAxis(-mousePosition.y, targetOrientation * Vector3.right) * targetOrientation;
-                this.VerticalTargetTransform.localRotation = rotation * targetCharacterOrientation;
+                this.Pitch.localRotation = rotation * targetCharacterOrientation;
             }
 
-            if (this.HorizontalTargetTransform != null)
+            if (this.Yaw != null)
             {
                 var rotation = Quaternion.AngleAxis(mousePosition.x, Vector3.up);
-                this.HorizontalTargetTransform.localRotation = rotation * targetCharacterOrientation;
+                this.Yaw.localRotation = rotation * targetCharacterOrientation;
             }
 
             this.MousePosition = mousePosition;

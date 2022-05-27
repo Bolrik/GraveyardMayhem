@@ -12,7 +12,7 @@ namespace Input
     {
         private InputUnit Input { get; set; }
 
-        public InputState Move { get; private set; }
+        public InputButton Move { get; private set; }
         public InputState ViewDelta { get; private set; }
         public InputButton LeftClick { get; private set; }
 
@@ -23,7 +23,7 @@ namespace Input
             this.Input = new InputUnit();
             this.Input.Enable();
 
-            this.Move = this.Add(this.Input.Player.Move);
+            this.Move = this.AddButton(this.Input.Player.Move);
             this.ViewDelta = this.Add(this.Input.Player.ViewDelta);
             //this.LeftClick = this.AddButton(this.Input.Player.LeftClick);
         }

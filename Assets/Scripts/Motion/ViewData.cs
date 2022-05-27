@@ -2,7 +2,7 @@
 
 namespace Motion
 {
-    [CreateAssetMenu(fileName = "newViewData", menuName = "General/new View Data")]
+    [CreateAssetMenu(fileName = "ViewData", menuName = "General/new View Data")]
     public class ViewData : ScriptableObject
     {
         [SerializeField] private Vector2 viewClamp = new Vector2(360, 180);
