@@ -13,11 +13,24 @@ namespace PlayerControlls
         [SerializeField] private InputController input;
         public InputController Input { get { return input; } }
 
-        #region IInput
 
-        InputButton IInput.Move => this.Input.Move;
-        InputState IInput.ViewDelta => this.Input.ViewDelta;
-        InputButton IInput.LeftClick => this.Input.LeftClick;
+        #region IInput
+        public void GetAction(out bool value)
+        {
+            value = this.Input.LeftClick.IsPressed;
+        }
+
+        public void GetMove(out Vector2 value, out float pressTime)
+        {
+            value = this.Input.Move.GetVector2();
+            pressTime = this.Input.Move.DownTime;
+        }
+
+        public void GetViewDelta(out Vector2 value)
+        {
+            value = this.Input.ViewDelta.GetVector2();
+        }
+
 
         #endregion
     }

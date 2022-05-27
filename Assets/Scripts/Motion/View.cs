@@ -11,21 +11,21 @@ namespace Motion
     public class View : MonoBehaviour
     {
         [Header("Info")]
-        [SerializeField] private Vector2 mousePosition;
-        private Vector2 MousePosition { get { return this.mousePosition; } set { this.mousePosition = value; } }
+        [SerializeField] private Vector2 currentView;
+        private Vector2 CurrentView { get { return this.currentView; } set { this.currentView = value; } }
 
-        [SerializeField] private Vector2 mousePositionSmooth;
-        private Vector2 MousePositionSmooth { get { return this.mousePositionSmooth; } set { this.mousePositionSmooth = value; } }
+        [SerializeField] private Vector2 currentViewSmooth;
+        private Vector2 CurrentViewSmooth { get { return this.currentViewSmooth; } set { this.currentViewSmooth = value; } }
 
         [Header("Settings")]
         [SerializeField] private ViewData data;
         public ViewData Data { get { return data; } }
 
-        [SerializeField] private Vector2 targetDirection;
-        private Vector2 TargetDirection { get { return this.targetDirection; } set { this.targetDirection = value; } }
+        [SerializeField] private Vector2 targetView;
+        private Vector2 TargetView { get { return this.targetView; } set { this.targetView = value; } }
 
-        [SerializeField] private Vector2 targetCharacterDirection;
-        private Vector2 TargetCharacterDirection { get { return this.targetCharacterDirection; } set { this.targetCharacterDirection = value; } }
+        [SerializeField] private Vector2 targetViewDirection;
+        private Vector2 TargetViewDirection { get { return this.targetViewDirection; } set { this.targetViewDirection = value; } }
 
         [Header("References")]
         [SerializeField] private Transform pitch;
@@ -34,8 +34,8 @@ namespace Motion
         [SerializeField] private Transform yaw;
         public Transform Yaw { get { return this.yaw; } private set { this.yaw = value; } }
 
-        [SerializeField] private InputController input;
-        public InputController Input { get { return input; } private set { this.input = value; } }
+        [SerializeField] private IInput input;
+        public IInput Input { get { return input; } private set { this.input = value; } }
 
 
         private Vector2 Sensitivit { get => this.Data.Sensitivit; }
@@ -45,41 +45,34 @@ namespace Motion
 
         private void Start()
         {
+            this.Input = this.GetComponent<IInput>();
+
             // Set target direction to the camera's initial orientation.
             if (this.Pitch != null)
-                this.TargetDirection = this.Pitch.localRotation.eulerAngles;
+                this.TargetView = this.Pitch.localRotation.eulerAngles;
 
             // Set target direction for the character body to its inital state.
             if (this.Yaw != null)
-                this.TargetCharacterDirection = this.Yaw.localRotation.eulerAngles;
-
-            //Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.visible = false;
+                this.TargetViewDirection = this.Yaw.localRotation.eulerAngles;
         }
 
         void LateUpdate()
         {
-            //if (!GameSettings.Instance.ShowCursor)
-            //{
-            //    Cursor.lockState = CursorLockMode.Locked;
-            //    Cursor.visible
-            //}
+            var targetOrientation = Quaternion.Euler(this.TargetView);
+            var targetCharacterOrientation = Quaternion.Euler(this.TargetViewDirection);
 
-            var targetOrientation = Quaternion.Euler(this.TargetDirection);
-            var targetCharacterOrientation = Quaternion.Euler(this.TargetCharacterDirection);
+            this.Input.GetViewDelta(out Vector2 viewDelta);
 
-            var mouseDelta = this.Input.ViewDelta.GetVector2();
-
-            mouseDelta = Vector2.Scale(mouseDelta,
+            viewDelta = Vector2.Scale(viewDelta,
                 new Vector2(
                     this.Sensitivit.x * this.Smoothing.x,
                 this.Sensitivit.y * this.Smoothing.y));
 
-            Vector2 mousePositionSmooth = this.MousePositionSmooth;
-            mousePositionSmooth.x = Mathf.Lerp(mousePositionSmooth.x, mouseDelta.x, 1f / this.Smoothing.x);
-            mousePositionSmooth.y = Mathf.Lerp(mousePositionSmooth.y, mouseDelta.y, 1f / this.Smoothing.y);
+            Vector2 mousePositionSmooth = this.CurrentViewSmooth;
+            mousePositionSmooth.x = Mathf.Lerp(mousePositionSmooth.x, viewDelta.x, 1f / this.Smoothing.x);
+            mousePositionSmooth.y = Mathf.Lerp(mousePositionSmooth.y, viewDelta.y, 1f / this.Smoothing.y);
 
-            Vector2 mousePosition = this.MousePosition;
+            Vector2 mousePosition = this.CurrentView;
             mousePosition += mousePositionSmooth;
 
             if (this.ViewClamp.x < 360)
@@ -100,8 +93,8 @@ namespace Motion
                 this.Yaw.localRotation = rotation * targetCharacterOrientation;
             }
 
-            this.MousePosition = mousePosition;
-            this.MousePositionSmooth = mousePositionSmooth;
+            this.CurrentView = mousePosition;
+            this.CurrentViewSmooth = mousePositionSmooth;
         }
     }
 }

@@ -39,16 +39,24 @@ namespace Motion
         {
             Vector3 velocity = this.Velocity;
 
-            Vector2 moveInput = this.Input.Move.GetVector2();
+            this.Input.GetMove(out Vector2 moveInput, out float time);
 
-            Vector3 forward = this.View.Yaw.forward * moveInput.y + this.View.Yaw.right * moveInput.x;
+            Vector3 forward = this.GetForward(moveInput);
             Vector3 forwardProjected = Vector3.ProjectOnPlane(forward, Vector3.up);
 
-            float speed = this.Speed * Mathf.Clamp01(this.Input.Move.DownTime * (1f / .1f));
+            float speed = this.Speed * Mathf.Clamp01(time * (1f / .1f));
 
             velocity += forwardProjected * speed * Time.deltaTime;
 
             this.Velocity = velocity;
+        }
+
+        private Vector3 GetForward(Vector2 moveInput)
+        {
+            if (this.View == null)
+                return this.transform.forward * moveInput.y + this.transform.right * moveInput.x;
+
+            return this.View.Yaw.forward * moveInput.y + this.View.Yaw.right * moveInput.x;
         }
 
         private void FixedUpdate()
