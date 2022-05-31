@@ -61,8 +61,12 @@ namespace Motion
 
         private void FixedUpdate()
         {
-            this.transform.position += this.Velocity;
+            Vector3 finalPosition = this.transform.position + this.Velocity;
+            finalPosition.x = Mathf.Clamp(finalPosition.x , - 27, 27);
+            finalPosition.z = Mathf.Clamp(finalPosition.z , - 27, 27);
 
+            this.transform.position = finalPosition;
+            
             this.Velocity = Vector3.zero;
         }
     }
