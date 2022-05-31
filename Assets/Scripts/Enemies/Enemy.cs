@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -67,11 +68,31 @@ namespace Enemies
             this.transform.eulerAngles = rotation;
 
             this.SwarmController.Push();
+
+            if (Random.value <= .0001)
+            {
+                this.DamageHead();
+                this.DamageBody();
+                this.DamageFeet();
+            }
         }
 
         private void DamageHead()
         {
+            var enemyAnimationSet = this.AnimationUnit.GetCurrentHeadSet();
+            this.AnimationUnit.SetHead(enemyAnimationSet.GetRandomSuccessor(out bool success));
+        }
 
+        private void DamageBody()
+        {
+            var enemyAnimationSet = this.AnimationUnit.GetCurrentBodySet();
+            this.AnimationUnit.SetBody(enemyAnimationSet.GetRandomSuccessor(out bool success));
+        }
+
+        private void DamageFeet()
+        {
+            var enemyAnimationSet = this.AnimationUnit.GetCurrentFeetSet();
+            this.AnimationUnit.SetFeet(enemyAnimationSet.GetRandomSuccessor(out bool success));
         }
     }
 }

@@ -16,6 +16,9 @@ namespace Enemies
         [SerializeField] private Enemy owner;
         public Enemy Owner { get { return owner; } }
 
+        int Frame { get; set; }
+        float FrameTime { get; set; }
+
 
         private EnemyAnimationSet[] AnimationSets { get; set; } = new EnemyAnimationSet[3];
 
@@ -56,6 +59,14 @@ namespace Enemies
 
         private void LateUpdate()
         {
+            this.FrameTime += Time.deltaTime;
+
+            if (this.FrameTime > .2f)
+            {
+                this.Frame++;
+                this.FrameTime = 0;
+            }
+
             this.UpdateHead();
             this.UpdateBody();
             this.UpdateFeet();
@@ -63,17 +74,23 @@ namespace Enemies
 
         void UpdateHead()
         {
-            this.Head.sprite = this.AnimationSets[0].AnimationSet.Frames[0];
+            this.Head.sprite = this.GetSprite(this.AnimationSets[0]);
         }
 
         void UpdateBody()
         {
-            this.Body.sprite = this.AnimationSets[1].AnimationSet.Frames[0];
+            this.Body.sprite = this.GetSprite(this.AnimationSets[1]);
         }
 
         void UpdateFeet()
         {
-            this.Feet.sprite = this.AnimationSets[2].AnimationSet.Frames[0];
+            this.Feet.sprite = this.GetSprite(this.AnimationSets[2]);
+        }
+
+        Sprite GetSprite(EnemyAnimationSet set)
+        {
+            int length = set.AnimationSet.Frames.Length;
+            return set.AnimationSet.Frames[this.Frame % length];
         }
     }
 }
