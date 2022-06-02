@@ -1,6 +1,5 @@
 ﻿using Input;
-using System;
-using System.Collections.Generic;
+using Motion;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +12,18 @@ namespace PlayerControlls
         [SerializeField] private InputController input;
         public InputController Input { get { return input; } }
 
+        [SerializeField] private WeaponSlot weapon;
+        public WeaponSlot Weapon { get { return weapon; } }
+
+        [SerializeField] private Camera view;
+        public Camera View { get { return view; } }
+
+
 
         #region IInput
         public void GetAction(out bool value)
         {
-            value = this.Input.LeftClick.IsPressed;
+            value = this.Input.Action.IsPressed;
         }
 
         public void GetMove(out Vector2 value, out float pressTime)
@@ -30,8 +36,19 @@ namespace PlayerControlls
         {
             value = this.Input.ViewDelta.GetVector2();
         }
-
-
         #endregion
+
+        public void Update()
+        {
+            this.Weapon.Update();
+
+            if (this.Input.Action.WasPressed)
+            {
+                if (this.Weapon.Fire(this.View.transform, out RaycastHit[] hits))
+                {
+
+                }
+            }
+        }
     }
 }

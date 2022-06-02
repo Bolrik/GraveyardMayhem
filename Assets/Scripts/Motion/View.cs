@@ -34,6 +34,8 @@ namespace Motion
         [SerializeField] private Transform yaw;
         public Transform Yaw { get { return this.yaw; } private set { this.yaw = value; } }
 
+        public Transform FinalView { get => this.Yaw; }
+
         [SerializeField] private IInput input;
         public IInput Input { get { return input; } private set { this.input = value; } }
 

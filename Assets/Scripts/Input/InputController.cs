@@ -14,7 +14,7 @@ namespace Input
 
         public InputButton Move { get; private set; }
         public InputState ViewDelta { get; private set; }
-        public InputButton LeftClick { get; private set; }
+        public InputButton Action { get; private set; }
 
         GameInputUpdate InputUpdate { get; set; }
 
@@ -24,8 +24,9 @@ namespace Input
             this.Input.Enable();
 
             this.Move = this.AddButton(this.Input.Player.Move);
+            this.Action = this.AddButton(this.Input.Player.Action);
+
             this.ViewDelta = this.Add(this.Input.Player.ViewDelta);
-            //this.LeftClick = this.AddButton(this.Input.Player.LeftClick);
         }
 
         private InputState Add(InputAction inputAction)

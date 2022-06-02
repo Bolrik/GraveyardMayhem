@@ -1,4 +1,5 @@
 ﻿using Input;
+using Misc;
 using Motion;
 using PlayerControlls;
 using System;
@@ -10,7 +11,7 @@ using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    class Enemy : MonoBehaviour
+    class Enemy : MonoBehaviour, IHitObserver
     {
         [SerializeField] private Player player;
         public Player Player { get { return player; } }
@@ -25,6 +26,18 @@ namespace Enemies
 
         [SerializeField] private EnemyVisualData visualData;
         public EnemyVisualData VisualData { get { return visualData; } }
+
+        
+        [SerializeField] private HitBox headHitBox;
+        public HitBox HeadHitBox { get { return headHitBox; } }
+
+        [SerializeField] private HitBox bodyHitBox;
+        public HitBox BodyHitBox { get { return bodyHitBox; } }
+
+        [SerializeField] private HitBox feetHitBox;
+        public HitBox FeetHitBox { get { return feetHitBox; } }
+
+
 
 
         // AnimationUnit
@@ -68,31 +81,41 @@ namespace Enemies
             this.transform.eulerAngles = rotation;
 
             this.SwarmController.Push();
-
-            if (Random.value <= .0001)
-            {
-                this.DamageHead();
-                this.DamageBody();
-                this.DamageFeet();
-            }
         }
 
-        private void DamageHead()
+        private void DamageHead(WeaponData weapon)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentHeadSet();
             this.AnimationUnit.SetHead(enemyAnimationSet.GetRandomSuccessor(out bool success));
         }
 
-        private void DamageBody()
+        private void DamageBody(WeaponData weapon)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentBodySet();
             this.AnimationUnit.SetBody(enemyAnimationSet.GetRandomSuccessor(out bool success));
         }
 
-        private void DamageFeet()
+        private void DamageFeet(WeaponData weapon)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentFeetSet();
             this.AnimationUnit.SetFeet(enemyAnimationSet.GetRandomSuccessor(out bool success));
+        }
+
+
+        public void OnHit(HitBox hitBox, WeaponData weaponData)
+        {
+            if (this.HeadHitBox == hitBox)
+            {
+                this.DamageHead(weaponData);
+            }
+            else if (this.BodyHitBox == hitBox)
+            {
+                this.DamageBody(weaponData);
+            }
+            else if (this.FeetHitBox == hitBox)
+            {
+                this.DamageFeet(weaponData);
+            }
         }
     }
 }

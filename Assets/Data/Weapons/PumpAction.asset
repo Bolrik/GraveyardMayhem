@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f94c126e51733c4f8dbc7ff15dde509, type: 3}
+  m_Name: PumpAction
+  m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spread: 0.7
+  bullets: 12
+  distance: 8
+  cooldown: 1
+  recoilTime: 0.15
+  spriteTint: {r: 0.52643293, g: 0.5687312, b: 0.6603774, a: 1}
+  frames:
+  - {fileID: 1487579647, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 1133047426, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -537423324, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  frameTime: 0.02
+  cooldownAngle: {x: 315, y: 263, z: 60}
+  defaultAngle: {x: 335, y: 263, z: 0}

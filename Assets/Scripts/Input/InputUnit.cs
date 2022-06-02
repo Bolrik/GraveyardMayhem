@@ -46,6 +46,15 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef2a96a7-5488-44ef-bdc6-3b53ac7e6efc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -114,6 +123,17 @@ namespace Input
                     ""action"": ""ViewDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""790bada6-615c-4357-aa6d-e845249fbd73"",
+                    ""path"": ""<Pointer>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -124,6 +144,7 @@ namespace Input
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_ViewDelta = m_Player.FindAction("ViewDelta", throwIfNotFound: true);
+            m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -185,12 +206,14 @@ namespace Input
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_ViewDelta;
+        private readonly InputAction m_Player_Action;
         public struct PlayerActions
         {
             private @InputUnit m_Wrapper;
             public PlayerActions(@InputUnit wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @ViewDelta => m_Wrapper.m_Player_ViewDelta;
+            public InputAction @Action => m_Wrapper.m_Player_Action;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -206,6 +229,9 @@ namespace Input
                     @ViewDelta.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnViewDelta;
                     @ViewDelta.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnViewDelta;
                     @ViewDelta.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnViewDelta;
+                    @Action.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                    @Action.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                    @Action.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -216,6 +242,9 @@ namespace Input
                     @ViewDelta.started += instance.OnViewDelta;
                     @ViewDelta.performed += instance.OnViewDelta;
                     @ViewDelta.canceled += instance.OnViewDelta;
+                    @Action.started += instance.OnAction;
+                    @Action.performed += instance.OnAction;
+                    @Action.canceled += instance.OnAction;
                 }
             }
         }
@@ -224,6 +253,7 @@ namespace Input
         {
             void OnMove(InputAction.CallbackContext context);
             void OnViewDelta(InputAction.CallbackContext context);
+            void OnAction(InputAction.CallbackContext context);
         }
     }
 }
