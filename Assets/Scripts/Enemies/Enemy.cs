@@ -1,5 +1,6 @@
 ﻿using Input;
 using Misc;
+using Misc.AssetVariables;
 using Motion;
 using PlayerControlls;
 using System;
@@ -13,9 +14,12 @@ namespace Enemies
 {
     class Enemy : MonoBehaviour, IHitObserver
     {
-        [SerializeField] private Player player;
-        public Player Player { get { return player; } }
+        [Header("References")]
+        //[SerializeField] private Player player;
+        //public Player Player { get { return player; } }
 
+        [SerializeField] private PlayerReference playerInstance;
+        public PlayerReference PlayerInstance { get { return playerInstance; } }
 
         [SerializeField] private EnemySwarmController swarmController;
         public EnemySwarmController SwarmController { get { return swarmController; } }
@@ -23,11 +27,12 @@ namespace Enemies
         [SerializeField] private EnemyAnimationUnit animationUnit;
         public EnemyAnimationUnit AnimationUnit { get { return animationUnit; } }
 
+        [SerializeField] private ParticleSystem onHitParticleSystem;
+        public ParticleSystem OnHitParticleSystem { get { return onHitParticleSystem; } }
 
-        [SerializeField] private EnemyVisualData visualData;
-        public EnemyVisualData VisualData { get { return visualData; } }
 
-        
+
+        [Header("References > HitBox")]
         [SerializeField] private HitBox headHitBox;
         public HitBox HeadHitBox { get { return headHitBox; } }
 
@@ -37,13 +42,30 @@ namespace Enemies
         [SerializeField] private HitBox feetHitBox;
         public HitBox FeetHitBox { get { return feetHitBox; } }
 
+        [Header("Data")]
+        [SerializeField] private EnemyVisualData visualData;
+        public EnemyVisualData VisualData { get { return visualData; } }
+
+        [SerializeField] private EnemyData data;
+        public EnemyData Data { get { return data; } }
+
+        [Header("Values")]
+        [SerializeField] private float hitpoints;
+        public float Hitpoints { get { return hitpoints; } private set { this.hitpoints = value; } }
 
 
+
+        public Player Player { get { return this.PlayerInstance.Value; } }
+        Vector3 KnockbackForce { get; set; }
 
         // AnimationUnit
 
+        bool PlayOnHit { get; set; }
+
         private void Start()
         {
+            this.Hitpoints = this.Data.Hitpoints;
+
             this.GetPlayerLocation(out _, out float toPlayerAngleSigned, out _, out _);
 
             Vector3 rotation = this.transform.eulerAngles;
@@ -74,48 +96,111 @@ namespace Enemies
         {
             this.GetPlayerLocation(out float toPlayerAngle, out float toPlayerAngleSigned, out Vector3 toPlayerOnPlane, out Vector2 toPlayer2D);
 
-            this.transform.position += toPlayerOnPlane * Time.deltaTime;
+            Vector3 knockback = this.KnockbackForce * Time.deltaTime * (1f / .1f);
+            this.KnockbackForce -= knockback;
+            this.transform.position += toPlayerOnPlane * Time.deltaTime + knockback;
 
             Vector3 rotation = this.transform.eulerAngles;
             rotation.y = Mathf.Lerp(rotation.y, rotation.y - toPlayerAngleSigned, (1f / .2f) * Time.deltaTime);
             this.transform.eulerAngles = rotation;
 
             this.SwarmController.Push();
+
+            if (this.PlayOnHit)
+            {
+                this.OnHitParticleSystem.Play();
+                this.PlayOnHit = false;
+            }
         }
 
-        private void DamageHead(WeaponData weapon)
+        private void DamageHead(HitObserverInfo info)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentHeadSet();
             this.AnimationUnit.SetHead(enemyAnimationSet.GetRandomSuccessor(out bool success));
+
+            this.Damage(info, this.Data.DamageMultiplierHead);
+
         }
 
-        private void DamageBody(WeaponData weapon)
+        private void DamageBody(HitObserverInfo info)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentBodySet();
             this.AnimationUnit.SetBody(enemyAnimationSet.GetRandomSuccessor(out bool success));
+
+            this.Damage(info, this.Data.DamageMultiplierBody);
+
         }
 
-        private void DamageFeet(WeaponData weapon)
+        private void DamageFeet(HitObserverInfo info)
         {
             var enemyAnimationSet = this.AnimationUnit.GetCurrentFeetSet();
             this.AnimationUnit.SetFeet(enemyAnimationSet.GetRandomSuccessor(out bool success));
+
+            this.Damage(info, this.Data.DamageMultiplierFeet);
         }
 
 
-        public void OnHit(HitBox hitBox, WeaponData weaponData)
+        public void OnHit(HitObserverInfo info)
         {
-            if (this.HeadHitBox == hitBox)
+            this.PlayOnHit = true;
+
+            if (this.HeadHitBox == info.HitBox)
             {
-                this.DamageHead(weaponData);
+                this.DamageHead(info);
             }
-            else if (this.BodyHitBox == hitBox)
+            else if (this.BodyHitBox == info.HitBox)
             {
-                this.DamageBody(weaponData);
+                this.DamageBody(info);
             }
-            else if (this.FeetHitBox == hitBox)
+            else if (this.FeetHitBox == info.HitBox)
             {
-                this.DamageFeet(weaponData);
+                this.DamageFeet(info);
             }
+        }
+
+        public void Damage(HitObserverInfo info, float damageMultiplier)
+        {
+            float damage = info.CalculateDamage() * damageMultiplier;
+            this.Hitpoints -= damage;
+
+            this.Knockback(info, damage);
+
+            if (this.Hitpoints <= 0)
+            {
+                this.Die();
+            }
+        }
+
+        private void Knockback(HitObserverInfo info, float damage)
+        {
+            Vector3 avgOrigin = Vector3.zero;
+            float avgDistance = 0;
+
+            foreach (var shotInfo in info.ShotInfos)
+            {
+                avgOrigin += shotInfo.Origin;
+                avgDistance += shotInfo.Hit.distance;
+            }
+
+            avgOrigin /= info.ShotInfos.Length;
+            avgDistance /= info.ShotInfos.Length;
+
+            this.Knockback(avgOrigin, avgDistance, damage);
+        }
+
+        public void Knockback(Vector3 origin, float distance, float force)
+        {
+            float finalForce = force / Mathf.Max(distance, 1);
+
+            Vector3 finalKnockback = (this.transform.position - origin).normalized * finalForce;
+            finalKnockback.y = 0;
+
+            this.KnockbackForce += finalKnockback;
+        }
+
+        public void Die()
+        {
+
         }
     }
 }

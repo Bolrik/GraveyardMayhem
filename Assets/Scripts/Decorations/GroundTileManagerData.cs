@@ -13,7 +13,5 @@ namespace Decorations
 
         [SerializeField] private int width = 3;
         public int Width { get { return width; } }
-
-
     }
 }

@@ -108,11 +108,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 111
+        y: 50
         width: 46
-        height: 9
-      alignment: 9
-      pivot: {x: 0.1, y: 0.5}
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: Weapon_Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 102
+        x: 46
+        y: 50
         width: 46
-        height: 9
-      alignment: 9
-      pivot: {x: 0.1, y: 0.5}
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: Weapon_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 93
+        x: 92
+        y: 50
         width: 46
-        height: 9
-      alignment: 9
-      pivot: {x: 0.1, y: 0.5}
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,6 +162,258 @@ TextureImporter:
       bones: []
       spriteID: 87967cd139e2a5b43a9521b881f6535b
       internalID: -537423324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 50
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6fe9bfdaf5ac149b12f90d8cb2e3ac
+      internalID: -750964811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 50
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c2393c4a94d35459eacc3253ae1a6b
+      internalID: 95217584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93997dec2a47a5d4395dd2c4879b1696
+      internalID: 1589772560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 40
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d803e688a2980344a91553830c4b2951
+      internalID: -1901258535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 40
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6356f6c03938bd94480326ac28c788ca
+      internalID: 632925163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 40
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37246c1bf22d2c74e960575d2a99b008
+      internalID: 1454146668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 40
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c260bdbbcc2a854bb9f22df8337bfb4
+      internalID: -1277593962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad577d53f412374591cd187e73cb8f9
+      internalID: -842030707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 30
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1018ecc285a8c64cbaecdb6e37358fb
+      internalID: -1028608359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 30
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc0e21b96263a54d93667203827d7fa
+      internalID: -462412666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 30
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e393ccc3e360aaf438ac169134db58ca
+      internalID: 1832587964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 30
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2ff545d62498b429d48b3a13dee72b
+      internalID: -1471872774
       vertices: []
       indices: 
       edges: []
@@ -177,9 +429,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Weapon_Spritesheet_4: 95217584
+      Weapon_Spritesheet_6: -1901258535
+      Weapon_Spritesheet_10: -842030707
+      Weapon_Spritesheet_5: 1589772560
+      Weapon_Spritesheet_3: -750964811
+      Weapon_Spritesheet_11: -1028608359
       Weapon_Spritesheet_1: 1133047426
+      Weapon_Spritesheet_12: -462412666
+      Weapon_Spritesheet_13: 1832587964
       Weapon_Spritesheet_0: 1487579647
+      Weapon_Spritesheet_14: -1471872774
       Weapon_Spritesheet_2: -537423324
+      Weapon_Spritesheet_7: 632925163
+      Weapon_Spritesheet_9: -1277593962
+      Weapon_Spritesheet_8: 1454146668
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

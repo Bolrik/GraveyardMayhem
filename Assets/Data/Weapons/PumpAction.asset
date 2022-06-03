@@ -15,16 +15,23 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 64
-  spread: 0.7
+  spread: 0.25
   bullets: 12
-  distance: 8
   cooldown: 1
   recoilTime: 0.15
+  distance: 8
+  bulletDamage: 5
+  damageReductionPerDistance: 0.5
   spriteTint: {r: 0.52643293, g: 0.5687312, b: 0.6603774, a: 1}
+  bulletSpawnOffset: {x: 0.3, y: 0.05, z: 0}
+  offset: {x: 0.25, y: -0.2, z: 0.3}
+  pivot: {x: 0.4347826, y: 0, z: 0}
   frames:
   - {fileID: 1487579647, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
   - {fileID: 1133047426, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
   - {fileID: -537423324, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
-  frameTime: 0.02
-  cooldownAngle: {x: 315, y: 263, z: 60}
-  defaultAngle: {x: 335, y: 263, z: 0}
+  - {fileID: -750964811, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 95217584, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  frameTime: 0.04
+  cooldownAngle: {x: 0, y: 270, z: 60}
+  defaultAngle: {x: 0, y: 270, z: 0}

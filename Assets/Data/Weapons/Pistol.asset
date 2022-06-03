@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f94c126e51733c4f8dbc7ff15dde509, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spread: 0.01
+  bullets: 1
+  cooldown: 0.2
+  recoilTime: 0.075
+  distance: 22
+  bulletDamage: 4
+  damageReductionPerDistance: 0.13636364
+  spriteTint: {r: 0.74853146, g: 0.8034414, b: 0.8396226, a: 1}
+  bulletSpawnOffset: {x: -0.1, y: 0.08, z: 0}
+  offset: {x: 0.24, y: -0.2, z: 0.4}
+  pivot: {x: 0.37, y: 0, z: 0}
+  frames:
+  - {fileID: 1589772560, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -1901258535, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 632925163, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 1454146668, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -1277593962, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  frameTime: 0.015
+  cooldownAngle: {x: 0, y: 280, z: 22}
+  defaultAngle: {x: 15, y: 270, z: 0}

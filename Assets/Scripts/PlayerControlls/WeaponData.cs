@@ -5,17 +5,16 @@ namespace PlayerControlls
     [CreateAssetMenu(fileName = "WeaponData", menuName = "Settings/new Weapon Data")]
     public class WeaponData : ScriptableObject
     {
+        [Header("General")]
         [SerializeField] private LayerMask hitLayer;
         public LayerMask HitLayer { get { return hitLayer; } }
 
+        [Header("Stats")]
         [SerializeField] private float spread;
         public float Spread { get { return spread; } }
 
         [SerializeField] private int bullets;
         public int Bullets { get { return bullets; } }
-
-        [SerializeField] private float distance;
-        public float Distance { get { return distance; } }
 
         [SerializeField] private float cooldown;
         public float Cooldown { get { return cooldown; } }
@@ -23,8 +22,29 @@ namespace PlayerControlls
         [SerializeField] private float recoilTime;
         public float RecoilTime { get { return recoilTime; } }
 
+        [SerializeField] private float distance;
+        public float Distance { get { return distance; } }
+
+        [Header("Damage")]
+        [SerializeField] private float bulletDamage;
+        public float BulletDamage { get { return bulletDamage; } }
+
+        [SerializeField] private float damageReductionPerDistance;
+        public float DamageReductionPerDistance { get { return damageReductionPerDistance; } }
+
+        [Header("Visuals")]
         [SerializeField] private Color spriteTint;
         public Color SpriteTint { get { return spriteTint; } }
+
+        [SerializeField] private Vector3 bulletSpawnOffset;
+        public Vector3 BulletSpawnOffset { get { return bulletSpawnOffset; } }
+
+        [SerializeField] private Vector3 offset;
+        public Vector3 Offset { get { return offset; } }
+
+        [SerializeField] private Vector3 pivot;
+        public Vector3 Pivot { get { return pivot; } }
+
 
 
 

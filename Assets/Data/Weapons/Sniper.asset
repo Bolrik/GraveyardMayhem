@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f94c126e51733c4f8dbc7ff15dde509, type: 3}
+  m_Name: Sniper
+  m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spread: 0.001
+  bullets: 10
+  cooldown: 1.5
+  recoilTime: 0.02
+  distance: 100
+  bulletDamage: 50
+  damageReductionPerDistance: 0.4
+  spriteTint: {r: 0.8584906, g: 0.6924617, b: 0.7141929, a: 1}
+  bulletSpawnOffset: {x: 0.44, y: 0.025, z: 0}
+  offset: {x: 0.18, y: -0.18, z: 0.3}
+  pivot: {x: 0.39130434, y: 0, z: 0}
+  frames:
+  - {fileID: -842030707, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -1028608359, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -462412666, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 1832587964, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -1471872774, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  frameTime: 0.0085
+  cooldownAngle: {x: 0, y: 270, z: 10}
+  defaultAngle: {x: 0, y: 270, z: 0}
