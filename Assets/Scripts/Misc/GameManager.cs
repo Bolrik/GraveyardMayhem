@@ -25,6 +25,9 @@ namespace Misc
             this.Score.Value = 0;
             this.Ammo.Value = 0;
             this.ScoreManager.IsActive = true;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }
