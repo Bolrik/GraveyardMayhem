@@ -1,0 +1,9 @@
+.game-text {
+    font-size: 40px;
+    -unity-text-align: middle-center;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(183, 97, 0);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.58);
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=c36a1588469b0da47ad801dd903cee92&type=3#NotInter-Regular');
+    -unity-font-style: bold;
+}

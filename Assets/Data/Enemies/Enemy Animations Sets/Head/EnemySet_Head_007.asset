@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: EnemySet_Head_007
   m_EditorClassIdentifier: 
   animationSet: {fileID: 11400000, guid: 0a93c9304a93cd84291af1dfde56c65d, type: 2}
-  successors:
-  - {fileID: 0}
+  successors: []

@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Data/UI/GameStyles.uss?fileID=7433441132597879392&amp;guid=2a71a7fce61ae0046990a929ec0804a1&amp;type=3#GameStyles" />
+    <ui:VisualElement name="AmmoCounter" style="align-items: auto; justify-content: flex-start; width: 100%; height: 100%; flex-direction: column; flex-grow: 0; flex-wrap: nowrap;">
+        <ui:VisualElement name="Spacer" style="flex-grow: 1; flex-wrap: nowrap;" />
+        <ui:Label text="000" display-tooltip-when-elided="true" name="AmmoText" class="game-text" style="width: auto; height: 80px; align-items: center; justify-content: center; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; font-size: 60px;" />
+    </ui:VisualElement>
+</ui:UXML>

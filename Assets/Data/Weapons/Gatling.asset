@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f94c126e51733c4f8dbc7ff15dde509, type: 3}
+  m_Name: Gatling
+  m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  spread: 0.1
+  bullets: 2
+  cooldown: 0.025
+  recoilTime: 0.01
+  distance: 40
+  ammo: 200
+  bulletDamage: 3
+  damageReductionPerDistance: 0.01
+  spriteTint: {r: 1, g: 1, b: 1, a: 1}
+  bulletSpawnOffset: {x: 0.23, y: 0.08, z: 0}
+  offset: {x: 0.29, y: -0.2, z: 0.38}
+  pivot: {x: 0.37, y: 0, z: 0}
+  frames:
+  - {fileID: -934471692, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 393772939, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -4856293, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: -1307137151, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  - {fileID: 1942196830, guid: c6b9a30acccbc46479631e28eb6a036a, type: 3}
+  frameTime: 0.01
+  cooldownAngle: {x: 0, y: -90, z: 10}
+  defaultAngle: {x: 0, y: -90, z: 0}

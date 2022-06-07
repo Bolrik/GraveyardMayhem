@@ -21,7 +21,9 @@ MonoBehaviour:
   hitPointsBody: 10
   hitPointsFeet: 10
   speed: 1
+  damage: 7
   visuals: {fileID: 11400000, guid: f9f80e52ebced4e449402f14da099898, type: 2}
+  scoreValue: 20
   headOffset: {x: 0, y: 1.25, z: 0}
   headScale: {x: 0.9, y: 0.8, z: 0.1}
   bodyOffset: {x: 0, y: 0.55, z: 0}

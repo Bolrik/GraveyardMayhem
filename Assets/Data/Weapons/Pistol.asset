@@ -20,6 +20,7 @@ MonoBehaviour:
   cooldown: 0.2
   recoilTime: 0.075
   distance: 22
+  ammo: -1
   bulletDamage: 4
   damageReductionPerDistance: 0.13636364
   spriteTint: {r: 0.74853146, g: 0.8034414, b: 0.8396226, a: 1}

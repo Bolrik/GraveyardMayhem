@@ -55,6 +55,24 @@ namespace Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""54a69d23-8ae3-4d37-aee3-bd0165e33228"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""6764d691-4d10-404d-b9b7-13faf7fbb91c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -115,8 +133,30 @@ namespace Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6eb558af-4fcc-4011-892d-6f84701aa210"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c2602169-2136-4781-9239-bf6e472198aa"",
                     ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ViewDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0733154d-6c5a-473c-939d-79e7b7d9e834"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -134,6 +174,61 @@ namespace Input
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77c6eabb-aa79-460d-b782-92b8a2801390"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d56747b8-b4f6-4dc6-8f77-e44631734dfb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f7b382b-8bdc-4a81-bae6-a1e31325e978"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88d99349-0eea-45bf-abba-1731f3b43e3d"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""930cf9f3-4e2a-4ecb-bd8b-9fd8713a5bc0"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +240,8 @@ namespace Input
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_ViewDelta = m_Player.FindAction("ViewDelta", throwIfNotFound: true);
             m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
+            m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
+            m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -207,6 +304,8 @@ namespace Input
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_ViewDelta;
         private readonly InputAction m_Player_Action;
+        private readonly InputAction m_Player_Quit;
+        private readonly InputAction m_Player_Restart;
         public struct PlayerActions
         {
             private @InputUnit m_Wrapper;
@@ -214,6 +313,8 @@ namespace Input
             public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @ViewDelta => m_Wrapper.m_Player_ViewDelta;
             public InputAction @Action => m_Wrapper.m_Player_Action;
+            public InputAction @Quit => m_Wrapper.m_Player_Quit;
+            public InputAction @Restart => m_Wrapper.m_Player_Restart;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -232,6 +333,12 @@ namespace Input
                     @Action.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
                     @Action.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
                     @Action.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAction;
+                    @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                    @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                    @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                    @Restart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                    @Restart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                    @Restart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -245,6 +352,12 @@ namespace Input
                     @Action.started += instance.OnAction;
                     @Action.performed += instance.OnAction;
                     @Action.canceled += instance.OnAction;
+                    @Quit.started += instance.OnQuit;
+                    @Quit.performed += instance.OnQuit;
+                    @Quit.canceled += instance.OnQuit;
+                    @Restart.started += instance.OnRestart;
+                    @Restart.performed += instance.OnRestart;
+                    @Restart.canceled += instance.OnRestart;
                 }
             }
         }
@@ -254,6 +367,8 @@ namespace Input
             void OnMove(InputAction.CallbackContext context);
             void OnViewDelta(InputAction.CallbackContext context);
             void OnAction(InputAction.CallbackContext context);
+            void OnQuit(InputAction.CallbackContext context);
+            void OnRestart(InputAction.CallbackContext context);
         }
     }
 }

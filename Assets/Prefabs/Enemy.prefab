@@ -59,6 +59,7 @@ MonoBehaviour:
   animationUnit: {fileID: 1919106540353344202}
   onHitParticleSystem: {fileID: 5600764184177724899}
   onDieParticleSystem: {fileID: 2853629249327433080}
+  scoreManager: {fileID: 11400000, guid: 38750512fa96f3e4a9a0fd500e68309e, type: 2}
   headHitBox: {fileID: 851321290604127883}
   bodyHitBox: {fileID: 7190048807875734654}
   feetHitBox: {fileID: 2338544476522047452}

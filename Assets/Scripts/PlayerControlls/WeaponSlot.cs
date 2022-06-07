@@ -1,4 +1,5 @@
 ﻿using Misc;
+using Misc.AssetVariables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,16 @@ namespace PlayerControlls
 
         [Header("Settings")]
         [SerializeField] private WeaponData data;
-        private WeaponData Data { get { return data; } set { data = value; } }
+        public WeaponData Data { get { return data; } private set { data = value; } }
+
+        [SerializeField] private WeaponData fallbackWeapon;
+        public WeaponData FallbackWeapon { get { return fallbackWeapon; } }
+
+        [Header("Variables")]
+        [SerializeField] private IntVariable ammo;
+        public IntVariable Ammo { get { return ammo; } }
+
+
 
         float Cooldown { get; set; }
 
@@ -39,10 +49,12 @@ namespace PlayerControlls
 
         public float Range { get => this.Data.Distance;  }
 
-
         public void SetData(WeaponData data)
         {
+            bool equalWeapon = this.Data == data;
+
             this.Data = data;
+            this.Ammo.Value = equalWeapon ? this.Ammo.Value + data.Ammo : data.Ammo;
         }
 
         public bool Fire(Transform view, out ShotInfo[] hits)
@@ -96,7 +108,21 @@ namespace PlayerControlls
 
             this.Cooldown = this.Data.Cooldown;
             hits = toReturn.ToArray();
+
+            this.Ammo.Value--;
+
+            if (this.Ammo <= 0)
+                this.ResetToDefault();
+
             return hits.Length > 0;
+        }
+
+        private void ResetToDefault()
+        {
+            if (this.FallbackWeapon == this.Data)
+                return;
+
+            this.SetData(this.FallbackWeapon);
         }
 
         private void ResolveHits(Dictionary<HitBox, List<ShotInfo>> hits)

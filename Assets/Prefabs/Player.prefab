@@ -344,9 +344,17 @@ MonoBehaviour:
     animationTransform: {fileID: 3817998607313597454}
     pivot: {fileID: 6376049741756793}
     data: {fileID: 11400000, guid: 56d1405b015d7ba47ba2b614c6f0d94b, type: 2}
+    fallbackWeapon: {fileID: 11400000, guid: 68a726d6a2fc2fd4085985fb61bef039, type: 2}
+    ammo: {fileID: 11400000, guid: 2162e03e0471b2a439851b0fe7cca211, type: 2}
   view: {fileID: 3456108993806908296}
   miscManager: {fileID: 11400000, guid: d30402bbaee79dc4b8415bddfdd19d76, type: 2}
+  data: {fileID: 11400000, guid: 021946fc76a21bf42a0016bc09b09a24, type: 2}
   playerInstance: {fileID: 11400000, guid: 9d50d72d30376894aaad401d52c5b8da, type: 2}
+  viewVariable: {fileID: 11400000, guid: 080559ff0292aa344a92932cf28fdcdf, type: 2}
+  hitPoints: {fileID: 11400000, guid: 459cc7dbcf2fc044abc1083179ec89e6, type: 2}
+  volume: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  vignetteDamageColor: {r: 1, g: 0, b: 0, a: 1}
+  vignetteColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &3456108994584934727
 GameObject:
   m_ObjectHideFlags: 0

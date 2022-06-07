@@ -78,8 +78,8 @@ namespace Enemies
                 {
                     do
                     {
-                        position.x = UnityEngine.Random.Range(-30, 30);
-                        position.z = UnityEngine.Random.Range(-30, 30);
+                        position.x = UnityEngine.Random.Range(-27, 27);
+                        position.z = UnityEngine.Random.Range(-27, 27);
 
                     } while ((this.Player.Value.transform.position - position).magnitude < 8);
 

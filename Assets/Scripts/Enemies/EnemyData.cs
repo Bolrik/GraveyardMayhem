@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Misc;
+using UnityEngine;
 
 namespace Enemies
 {
     [CreateAssetMenu(fileName = "EnemyData", menuName = "Enemy/new Enemy Data")]
-    public class EnemyData : ScriptableObject
+    public class EnemyData : ScriptableObject, IScoreItem
     {
         [SerializeField] private float knockbackReduction;
         public float KnockbackReduction { get { return knockbackReduction; } }
@@ -21,7 +22,6 @@ namespace Enemies
         [SerializeField] private float hitpoints;
         public float Hitpoints { get { return hitpoints; } }
 
-
         [SerializeField] private float hitPointsHead;
         public float HitPointsHead { get { return hitPointsHead; } }
 
@@ -35,8 +35,16 @@ namespace Enemies
         [SerializeField] private float speed = 1;
         public float Speed { get { return speed; } }
 
+        [SerializeField] private float damage;
+        public float Damage { get { return damage; } }
+
         [SerializeField] private EnemyVisualData visuals;
         public EnemyVisualData Visuals { get { return visuals; } }
+
+
+        [SerializeField] private float scoreValue;
+        public float ScoreValue { get { return scoreValue; } }
+
 
 
         [Header("Colliders")]

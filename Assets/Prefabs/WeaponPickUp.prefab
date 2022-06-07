@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2115087039682660721}
+  particle: {fileID: 2115087040360325264}
   data: {fileID: 11400000, guid: 68a726d6a2fc2fd4085985fb61bef039, type: 2}
 --- !u!135 &2115087040142469575
 SphereCollider:

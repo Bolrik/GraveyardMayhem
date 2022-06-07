@@ -33,6 +33,8 @@ namespace Enemies
         [SerializeField] private ParticleSystem onDieParticleSystem;
         public ParticleSystem OnDieParticleSystem { get { return onDieParticleSystem; } }
 
+        [SerializeField] private ScoreManager scoreManager;
+        public ScoreManager ScoreManager { get { return scoreManager; } }
 
 
         [Header("References > HitBox")]
@@ -60,6 +62,7 @@ namespace Enemies
 
         public Player Player { get { return this.PlayerInstance.Value; } }
         Vector3 KnockbackForce { get; set; }
+        float AttackCooldown { get; set; }
 
         EnemyDieAnimator DieAnimator { get; set; }
 
@@ -123,6 +126,8 @@ namespace Enemies
 
         private void Update()
         {
+            this.AttackCooldown = Mathf.Clamp(this.AttackCooldown - Time.deltaTime, 0, 1);
+
             if (this.DieAnimator.IsActive)
             {
                 if (this.DieAnimator.Update())
@@ -133,6 +138,7 @@ namespace Enemies
             else
             {
                 this.UpdateMovement();
+                this.TryDamagePlayer();
             }
         }
 
@@ -259,17 +265,20 @@ namespace Enemies
             avgOrigin /= info.ShotInfos.Length;
             avgDistance /= info.ShotInfos.Length;
 
-            this.Knockback(avgOrigin, avgDistance, damage);
+            this.Knockback(avgOrigin, avgDistance, damage, false);
         }
 
-        public void Knockback(Vector3 origin, float distance, float force)
+        public void Knockback(Vector3 origin, float distance, float force, bool ignoreReduction)
         {
             float finalForce = force / Mathf.Max(distance, 1);
 
-            if (this.Data.KnockbackReduction > 0)
-                finalForce = finalForce / this.Data.KnockbackReduction;
-            else
-                finalForce = finalForce * Mathf.Abs(this.Data.KnockbackReduction);
+            if (!ignoreReduction)
+            {
+                if (this.Data.KnockbackReduction > 0)
+                    finalForce = finalForce / this.Data.KnockbackReduction;
+                else
+                    finalForce = finalForce * Mathf.Max(1, Mathf.Abs(this.Data.KnockbackReduction));
+            }
 
             Vector3 finalKnockback = (this.transform.position - origin).normalized * finalForce;
             finalKnockback.y = 0;
@@ -286,6 +295,28 @@ namespace Enemies
         {
             this.DieAnimator.IsActive = true;
             this.OnDieParticleSystem?.Play();
+
+            this.ScoreManager.Add(this.Data);
+        }
+
+        private void TryDamagePlayer()
+        {
+            if (this.AttackCooldown > 0)
+                return;
+
+            if (this.KnockbackForce.magnitude > 1f)
+                return;
+
+            Vector3 delta = this.Player.transform.position - this.transform.position;
+            delta.y = 0;
+
+            if (delta.magnitude <= 1)
+            {
+                this.Player.Damage(this.Data.Damage);
+                this.Knockback(this.Player.transform.position, 1, 6, true);
+
+                this.AttackCooldown = 1;
+            }
         }
 
         class EnemyDieAnimator

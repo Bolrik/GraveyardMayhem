@@ -2,7 +2,7 @@
 
 namespace PlayerControlls
 {
-    [CreateAssetMenu(fileName = "WeaponData", menuName = "Settings/new Weapon Data")]
+    [CreateAssetMenu(fileName = "WeaponData", menuName = "Weapons/new Weapon Data")]
     public class WeaponData : ScriptableObject
     {
         [Header("General")]
@@ -24,6 +24,9 @@ namespace PlayerControlls
 
         [SerializeField] private float distance;
         public float Distance { get { return distance; } }
+
+        [SerializeField] private int ammo;
+        public int Ammo { get { return ammo; } }
 
         [Header("Damage")]
         [SerializeField] private float bulletDamage;

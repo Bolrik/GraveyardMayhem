@@ -48,9 +48,10 @@ MonoBehaviour:
   renderer: {fileID: 4093026632635197330}
   onHitParticleSystem: {fileID: 3961438813947125746}
   hitBox: {fileID: 4460451298689706534}
+  scoreManager: {fileID: 11400000, guid: 38750512fa96f3e4a9a0fd500e68309e, type: 2}
   data: {fileID: 11400000, guid: d88094391b0cf8e4fad05754b0eed071, type: 2}
   stage: 0
-  hitpoints: 0
+  hitPoints: 0
 --- !u!1 &4093026632635197324
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1846c973a3ee8e4e83c613e36267e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target:
+    constant: {fileID: 0}
+    useConstant: 0
+    variable: {fileID: 11400000, guid: 080559ff0292aa344a92932cf28fdcdf, type: 2}
   useTargetRotation: 1
 --- !u!212 &4093026632635197330
 SpriteRenderer:

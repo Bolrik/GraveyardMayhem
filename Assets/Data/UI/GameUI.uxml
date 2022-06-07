@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="WaveInfo" src="project://database/Assets/Data/UI/Templates/WaveInfo.uxml?fileID=9197481963319205126&amp;guid=bd767423324f1da40ad6aa89629ee42a&amp;type=3#WaveInfo" />
+    <ui:Template name="HealthUI" src="project://database/Assets/Data/UI/Templates/HealthUI.uxml?fileID=9197481963319205126&amp;guid=2b1ccb637885ecc4ca28c4c708f04b87&amp;type=3#HealthUI" />
+    <ui:Template name="AmmoCounter" src="project://database/Assets/Data/UI/Templates/AmmoCounter.uxml?fileID=9197481963319205126&amp;guid=056ed979362bf0641aad0635a6b2e973&amp;type=3#AmmoCounter" />
+    <ui:Template name="ScoreUI" src="project://database/Assets/Data/UI/Templates/ScoreUI.uxml?fileID=9197481963319205126&amp;guid=924940b3c354f514ca2218f2dee8687e&amp;type=3#ScoreUI" />
+    <Style src="project://database/Assets/Data/UI/GameStyles.uss?fileID=7433441132597879392&amp;guid=2a71a7fce61ae0046990a929ec0804a1&amp;type=3#GameStyles" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; width: 100%; height: 100%;">
+        <ui:Instance template="WaveInfo" name="WaveInfo" />
+        <ui:Instance template="ScoreUI" name="ScoreUI" style="align-items: flex-end;" />
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+            <ui:Instance template="HealthUI" name="HealthUI" />
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:Instance template="AmmoCounter" name="AmmoCounter" style="justify-content: flex-start; flex-grow: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,4 +1,5 @@
 ﻿using Input;
+using Misc.AssetVariables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace Visuals
 {
     public class Billboard : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-        public Transform Target { get { return target; } }
+        [SerializeField] private TransformReference target;
+        public TransformReference Target { get { return target; } }
 
         [SerializeField] private bool useTargetRotation;
         public bool UseTargetRotation { get { return useTargetRotation; } }
@@ -21,7 +22,7 @@ namespace Visuals
         {
             if (this.UseTargetRotation)
             {
-                this.transform.eulerAngles = this.Target.eulerAngles;
+                this.transform.eulerAngles = this.Target.Value.eulerAngles;
             }
             else
             {

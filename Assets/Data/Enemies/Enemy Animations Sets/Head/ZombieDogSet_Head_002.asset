@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ZombieDogSet_Head_002
   m_EditorClassIdentifier: 
   animationSet: {fileID: 11400000, guid: 8edd4a06f48179745b70359e1bbb9179, type: 2}
-  successors:
-  - {fileID: 0}
+  successors: []

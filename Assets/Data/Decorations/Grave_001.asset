@@ -26,3 +26,4 @@ MonoBehaviour:
     hitBoxScale: {x: 0, y: 0, z: 0}
     hitBoxEnabled: 0
   stageHitpoints: 5
+  scoreValue: 10
