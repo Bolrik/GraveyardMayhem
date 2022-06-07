@@ -40,6 +40,11 @@ namespace PlayerControlls
         public float Range { get => this.Data.Distance;  }
 
 
+        public void SetData(WeaponData data)
+        {
+            this.Data = data;
+        }
+
         public bool Fire(Transform view, out ShotInfo[] hits)
         {
             hits = new ShotInfo[0];

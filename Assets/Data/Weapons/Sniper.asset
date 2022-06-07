@@ -16,7 +16,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   spread: 0.001
-  bullets: 10
+  bullets: 1
   cooldown: 1.5
   recoilTime: 0.02
   distance: 100

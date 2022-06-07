@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c27bf87612f154f8a27da9f8053b95, type: 3}
+  m_Name: TankZombie
+  m_EditorClassIdentifier: 
+  head_AnimationSets:
+  - {fileID: 11400000, guid: 26bd9f2653505254fb7e5e5fcebbabc1, type: 2}
+  body_AnimationSets:
+  - {fileID: 11400000, guid: 777e5b700be362b42bd059cda119a662, type: 2}
+  feet_AnimationSets:
+  - {fileID: 11400000, guid: a2d974bb26c37a646b69572c3f331930, type: 2}

@@ -63,6 +63,11 @@ namespace PlayerControlls
             }
         }
 
+        public void PickUp(WeaponData data)
+        {
+            this.Weapon.SetData(data);
+        }
+
         #region IInput
         public void GetAction(out bool value)
         {

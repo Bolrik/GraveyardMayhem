@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    class EnemySwarmController : MonoBehaviour
+    public class EnemySwarmController : MonoBehaviour
     {
         [SerializeField] private Enemy owner;
         public Enemy Owner { get { return owner; } }

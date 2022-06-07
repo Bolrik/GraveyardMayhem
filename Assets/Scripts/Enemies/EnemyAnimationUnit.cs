@@ -2,7 +2,7 @@
 
 namespace Enemies
 {
-    class EnemyAnimationUnit : MonoBehaviour
+    public class EnemyAnimationUnit : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer head;
         public SpriteRenderer Head { get { return head; } }
@@ -12,6 +12,7 @@ namespace Enemies
 
         [SerializeField] private SpriteRenderer feet;
         public SpriteRenderer Feet { get { return feet; } }
+
 
         [SerializeField] private Enemy owner;
         public Enemy Owner { get { return owner; } }

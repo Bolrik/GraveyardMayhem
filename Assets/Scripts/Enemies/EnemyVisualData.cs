@@ -3,7 +3,7 @@
 namespace Enemies
 {
     [CreateAssetMenu(fileName = "EnemyVisualData", menuName = "Visuals/new Enemy Visual Data")]
-    class EnemyVisualData : ScriptableObject
+    public class EnemyVisualData : ScriptableObject
     {
         [SerializeField] private EnemyAnimationSet[] head_AnimationSets;
         public EnemyAnimationSet[] Head_AnimationSets { get { return head_AnimationSets; } }
