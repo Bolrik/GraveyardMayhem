@@ -23,22 +23,49 @@ namespace Enemies
 
         private EnemyAnimationSet[] AnimationSets { get; set; } = new EnemyAnimationSet[3];
 
-        public void SetHead(EnemyAnimationSet animationSet)
+        public void UpdateHead(EnemyAnimationSet animationSet)
         {
             this.AnimationSets[0] = animationSet;
             this.UpdateHead();
         }
 
-        public void SetBody(EnemyAnimationSet animationSet)
+        public void UpdateBody(EnemyAnimationSet animationSet)
         {
             this.AnimationSets[1] = animationSet;
             this.UpdateBody();
         }
         
-        public void SetFeet(EnemyAnimationSet animationSet)
+        public void UpdateFeet(EnemyAnimationSet animationSet)
         {
             this.AnimationSets[2] = animationSet;
             this.UpdateFeet();
+        }
+
+        public void SetHead(EnemyVisualData visualData)
+        {
+            Vector3 localPosition = this.Head.transform.localPosition;
+            localPosition.y = visualData.HeadOffset;
+            this.Head.transform.localPosition = localPosition;
+
+            this.UpdateHead(visualData.GetRandomHead());
+        }
+
+        public void SetBody(EnemyVisualData visualData)
+        {
+            Vector3 localPosition = this.Body.transform.localPosition;
+            localPosition.y = visualData.BodyOffset;
+            this.Body.transform.localPosition = localPosition;
+
+            this.UpdateBody(visualData.GetRandomBody());
+        }
+
+        public void SetFeet(EnemyVisualData visualData)
+        {
+            Vector3 localPosition = this.Feet.transform.localPosition;
+            localPosition.y = visualData.FeetOffset;
+            this.Feet.transform.localPosition = localPosition;
+
+            this.UpdateFeet(visualData.GetRandomFeet());
         }
 
 

@@ -21,6 +21,7 @@ MonoBehaviour:
   recoilTime: 0.02
   distance: 100
   ammo: 10
+  clip: {fileID: 8300000, guid: 4ab584674d9459748a0602e6393f056a, type: 3}
   bulletDamage: 50
   damageReductionPerDistance: 0.4
   spriteTint: {r: 0.8584906, g: 0.6924617, b: 0.7141929, a: 1}

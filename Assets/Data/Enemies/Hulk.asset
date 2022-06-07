@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354f4d4052e0c1741b347c896be1a1ec, type: 3}
+  m_Name: Hulk
+  m_EditorClassIdentifier: 
+  knockbackReduction: 5
+  damageMultiplierHead: 1.3
+  damageMultiplierBody: 1
+  damageMultiplierFeet: 1
+  hitpoints: 100
+  hitPointsHead: 35
+  hitPointsBody: 40
+  hitPointsFeet: 20
+  speed: 1
+  speedPerWave: 0.05
+  damage: 20
+  visuals: {fileID: 11400000, guid: 2156651f73d048e4f80e7e21e26ae67c, type: 2}
+  scoreValue: 50
+  clips:
+  - {fileID: 8300000, guid: 34612d5ae2a677d48991992f9c4721be, type: 3}
+  - {fileID: 8300000, guid: 811e9f07349b26148882135bcd1a7f30, type: 3}
+  - {fileID: 8300000, guid: d78ce45873343b84293d1154c52fc224, type: 3}
+  headOffset: {x: 0, y: 3.2, z: 0}
+  headScale: {x: 0.9, y: 0.9, z: 0.1}
+  bodyOffset: {x: 0, y: 1.8, z: 0}
+  bodyScale: {x: 2.2, y: 2, z: 0.1}
+  feetOffset: {x: 0, y: 0.4, z: 0}
+  feetScale: {x: 1.1, y: 0.8, z: 0.1}

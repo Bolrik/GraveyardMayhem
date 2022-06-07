@@ -20,10 +20,13 @@ MonoBehaviour:
   hitPointsHead: 2
   hitPointsBody: 2
   hitPointsFeet: 2
-  speed: 5
+  speed: 6
+  speedPerWave: 0.05
   damage: 3
   visuals: {fileID: 11400000, guid: b6109a20e427969478c3ea27bb33105e, type: 2}
   scoreValue: 25
+  clips:
+  - {fileID: 8300000, guid: f6c016927a459e544b2efb009f0266a2, type: 3}
   headOffset: {x: 0, y: 1, z: 0}
   headScale: {x: 0.7, y: 0.7, z: 0.1}
   bodyOffset: {x: 0, y: 1, z: 0}

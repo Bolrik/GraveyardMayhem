@@ -20,6 +20,9 @@ namespace PlayerControlls
         [SerializeField] private Transform pivot;
         public Transform Pivot { get { return pivot; } }
 
+        [SerializeField] private new AudioSource audio;
+        public AudioSource Audio { get { return audio; } }
+
         [Header("Settings")]
         [SerializeField] private WeaponData data;
         public WeaponData Data { get { return data; } private set { data = value; } }
@@ -113,6 +116,8 @@ namespace PlayerControlls
 
             if (this.Ammo <= 0)
                 this.ResetToDefault();
+
+            this.Audio.PlayOneShot(this.Data.Clip);
 
             return hits.Length > 0;
         }

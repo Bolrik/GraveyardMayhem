@@ -16,11 +16,15 @@ namespace Misc
         [SerializeField] private IntVariable ammo;
         public IntVariable Ammo { get { return ammo; } }
 
+        [SerializeField] private ScoreManager scoreManager;
+        public ScoreManager ScoreManager { get { return scoreManager; } }
+
 
         private void Awake()
         {
             this.Score.Value = 0;
             this.Ammo.Value = 0;
+            this.ScoreManager.IsActive = true;
         }
     }
 }

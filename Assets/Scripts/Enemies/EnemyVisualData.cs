@@ -15,6 +15,16 @@ namespace Enemies
         public EnemyAnimationSet[] Feet_AnimationSets { get { return feet_AnimationSets; } }
 
 
+        [SerializeField] private float headOffset;
+        public float HeadOffset { get { return headOffset; } }
+        
+        [SerializeField] private float bodyOffset;
+        public float BodyOffset { get { return bodyOffset; } }
+        
+        [SerializeField] private float feetOffset;
+        public float FeetOffset { get { return feetOffset; } }
+
+
         public EnemyAnimationSet GetRandomHead()
         {
             int index = UnityEngine.Random.Range(0, this.Head_AnimationSets.Length);

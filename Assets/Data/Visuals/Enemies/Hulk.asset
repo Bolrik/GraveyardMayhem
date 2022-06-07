@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c27bf87612f154f8a27da9f8053b95, type: 3}
+  m_Name: Hulk
+  m_EditorClassIdentifier: 
+  head_AnimationSets:
+  - {fileID: 11400000, guid: 81dff8a7fa7cc3143a49d2ff5678e882, type: 2}
+  body_AnimationSets:
+  - {fileID: 11400000, guid: f2164dbd904af9c46bf794b80cf45b24, type: 2}
+  feet_AnimationSets:
+  - {fileID: 11400000, guid: 66d137ad2bffb7e4fb12658092574308, type: 2}
+  headOffset: 1.8
+  bodyOffset: 1
+  feetOffset: 1

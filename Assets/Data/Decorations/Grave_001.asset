@@ -27,3 +27,4 @@ MonoBehaviour:
     hitBoxEnabled: 0
   stageHitpoints: 5
   scoreValue: 10
+  visualOffset: {x: 0, y: 0.7, z: 0}

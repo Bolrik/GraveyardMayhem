@@ -35,6 +35,10 @@ namespace Enemies
         [SerializeField] private float speed = 1;
         public float Speed { get { return speed; } }
 
+        [SerializeField] private float speedPerWave;
+        public float SpeedPerWave { get { return speedPerWave; } }
+
+
         [SerializeField] private float damage;
         public float Damage { get { return damage; } }
 
@@ -44,6 +48,10 @@ namespace Enemies
 
         [SerializeField] private float scoreValue;
         public float ScoreValue { get { return scoreValue; } }
+
+        [SerializeField] private AudioClip[] clips;
+        public AudioClip[] Clips { get { return clips; } }
+
 
 
 

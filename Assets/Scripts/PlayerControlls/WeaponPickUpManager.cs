@@ -26,7 +26,7 @@ namespace PlayerControlls
         {
             this.SpawnTime -= Time.deltaTime;
 
-            if (this.SpawnTime <= 0)
+            if (this.SpawnTime <= 0 || this.PickUps.Count == 0)
             {
                 if (this.PickUps.Count >= 3)
                     return;

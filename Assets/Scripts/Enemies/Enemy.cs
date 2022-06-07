@@ -36,6 +36,13 @@ namespace Enemies
         [SerializeField] private ScoreManager scoreManager;
         public ScoreManager ScoreManager { get { return scoreManager; } }
 
+        [SerializeField] private new AudioSource audio;
+        public AudioSource Audio { get { return audio; } }
+
+        [SerializeField] private IntReference wave;
+        public IntReference Wave { get { return wave; } }
+
+
 
         [Header("References > HitBox")]
         [SerializeField] private HitBox headHitBox;
@@ -65,6 +72,7 @@ namespace Enemies
         float AttackCooldown { get; set; }
 
         EnemyDieAnimator DieAnimator { get; set; }
+        bool IsDead { get; set; }
 
         // AnimationUnit
 
@@ -73,6 +81,8 @@ namespace Enemies
         float HitPointsHead { get; set; }
         float HitPointsBody { get; set; }
         float HitPointsFeet { get; set; }
+
+        float AudioTime { get; set; }
 
 
         public void SetData(EnemyData data)
@@ -104,9 +114,9 @@ namespace Enemies
             rotation.y = rotation.y - toPlayerAngleSigned;
             this.transform.eulerAngles = rotation;
 
-            this.AnimationUnit.SetHead(this.VisualData.GetRandomHead());
-            this.AnimationUnit.SetBody(this.VisualData.GetRandomBody());
-            this.AnimationUnit.SetFeet(this.VisualData.GetRandomFeet());
+            this.AnimationUnit.SetHead(this.VisualData);
+            this.AnimationUnit.SetBody(this.VisualData);
+            this.AnimationUnit.SetFeet(this.VisualData);
         }
 
         private void GetPlayerLocation(out float toPlayerAngle, out float toPlayerAngleSigned, out Vector3 toPlayerOnPlane, out Vector2 toPlayer2D)
@@ -126,6 +136,8 @@ namespace Enemies
 
         private void Update()
         {
+            this.UpdateAudio();
+
             this.AttackCooldown = Mathf.Clamp(this.AttackCooldown - Time.deltaTime, 0, 1);
 
             if (this.DieAnimator.IsActive)
@@ -139,6 +151,20 @@ namespace Enemies
             {
                 this.UpdateMovement();
                 this.TryDamagePlayer();
+            }
+        }
+
+        private void UpdateAudio()
+        {
+            this.AudioTime -= Time.deltaTime;
+
+            if (this.AudioTime <= 0)
+            {
+                this.AudioTime = Random.value * 30 + 10;
+                this.Audio.pitch = .75f + Random.value * .3f;
+
+                if (this.Data.Clips.Length > 0)
+                    this.Audio.PlayOneShot(this.Data.Clips[Random.Range(0, this.Data.Clips.Length)]);
             }
         }
 
@@ -156,7 +182,8 @@ namespace Enemies
             //Vector3 knockback = this.KnockbackForce * Time.deltaTime * (1f / .1f);
             //this.KnockbackForce -= knockback;
             this.ResolveKnockback();
-            this.transform.position += toPlayerOnPlane * this.Data.Speed * Time.deltaTime; // + knockback;
+            float speed = this.Data.Speed + this.Data.SpeedPerWave * this.Wave.Value;
+            this.transform.position += toPlayerOnPlane * speed * Time.deltaTime; // + knockback;
 
             Vector3 rotation = this.transform.eulerAngles;
             rotation.y = Mathf.Lerp(rotation.y, rotation.y - toPlayerAngleSigned, (1f / .2f) * Time.deltaTime);
@@ -183,7 +210,7 @@ namespace Enemies
                 this.HitPointsHead = this.Data.HitPointsHead;
 
                 var enemyAnimationSet = this.AnimationUnit.GetCurrentHeadSet();
-                this.AnimationUnit.SetHead(enemyAnimationSet.GetRandomSuccessor(out bool success));
+                this.AnimationUnit.UpdateHead(enemyAnimationSet.GetRandomSuccessor(out bool success));
             }
         }
 
@@ -198,7 +225,7 @@ namespace Enemies
                 this.HitPointsBody = this.Data.HitPointsBody;
 
                 var enemyAnimationSet = this.AnimationUnit.GetCurrentBodySet();
-                this.AnimationUnit.SetBody(enemyAnimationSet.GetRandomSuccessor(out bool success));
+                this.AnimationUnit.UpdateBody(enemyAnimationSet.GetRandomSuccessor(out bool success));
             }
         }
 
@@ -213,7 +240,7 @@ namespace Enemies
                 this.HitPointsFeet = this.Data.HitPointsFeet;
 
                 var enemyAnimationSet = this.AnimationUnit.GetCurrentFeetSet();
-                this.AnimationUnit.SetFeet(enemyAnimationSet.GetRandomSuccessor(out bool success));
+                this.AnimationUnit.UpdateFeet(enemyAnimationSet.GetRandomSuccessor(out bool success));
             }
         }
 
@@ -293,10 +320,15 @@ namespace Enemies
 
         public void Die()
         {
+            if (this.IsDead)
+                return;
+
             this.DieAnimator.IsActive = true;
             this.OnDieParticleSystem?.Play();
 
             this.ScoreManager.Add(this.Data);
+
+            this.IsDead = true;
         }
 
         private void TryDamagePlayer()

@@ -28,6 +28,10 @@ namespace PlayerControlls
         [SerializeField] private MiscManager miscManager;
         public MiscManager MiscManager { get { return miscManager; } }
 
+        [SerializeField] private ScoreManager score;
+        public ScoreManager Score { get { return score; } }
+
+
 
 
         [SerializeField] private PlayerData data;
@@ -56,6 +60,7 @@ namespace PlayerControlls
 
 
         float DamageTime { get; set; }
+        bool IsDead { get; set; }
 
 
         void Awake()
@@ -130,6 +135,12 @@ namespace PlayerControlls
         {
             this.HitPoints.Value -= damage;
             this.DamageTime = 1;
+
+            if (this.HitPoints.Value <= 0)
+            {
+                this.IsDead = true;
+                this.Score.IsActive = false;
+            }
         }
 
         #region IInput

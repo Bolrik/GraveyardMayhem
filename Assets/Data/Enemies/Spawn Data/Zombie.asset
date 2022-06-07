@@ -16,4 +16,4 @@ MonoBehaviour:
   ratio: 1
   ratioChangePerWave: -0.01
   waveMin: 0
-  waveMax: 0
+  waveMax: 12

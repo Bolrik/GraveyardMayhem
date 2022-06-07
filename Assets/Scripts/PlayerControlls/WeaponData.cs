@@ -28,6 +28,11 @@ namespace PlayerControlls
         [SerializeField] private int ammo;
         public int Ammo { get { return ammo; } }
 
+
+        [SerializeField] private AudioClip clip;
+        public AudioClip Clip { get { return clip; } }
+
+
         [Header("Damage")]
         [SerializeField] private float bulletDamage;
         public float BulletDamage { get { return bulletDamage; } }

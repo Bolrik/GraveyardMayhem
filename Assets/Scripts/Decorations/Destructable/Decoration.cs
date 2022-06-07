@@ -26,6 +26,13 @@ namespace Decorations
         [SerializeField] private ScoreManager scoreManager;
         public ScoreManager ScoreManager { get { return scoreManager; } }
 
+        [SerializeField] private new AudioSource audio;
+        public AudioSource Audio { get { return audio; } }
+
+        [SerializeField] private Transform visualRoot;
+        public Transform VisualRoot { get { return visualRoot; } }
+
+
 
         [Header("Settings")]
         [SerializeField] private DecorationData data;
@@ -92,6 +99,7 @@ namespace Decorations
             var stage = this.Data.Stages[this.Stage];
 
             this.Renderer.sprite = stage.Sprite;
+            this.VisualRoot.localPosition = this.Data.VisualOffset;
             this.HitBox.Box.center = stage.HitBoxOffset;
             this.HitBox.Box.size = stage.HitBoxScale;
             this.HitBox.Box.enabled = stage.HitBoxEnabled;
@@ -118,6 +126,7 @@ namespace Decorations
         public void SetData(DecorationData data)
         {
             this.Data = data;
+            this.UpdateStage();
         }
     }
 }

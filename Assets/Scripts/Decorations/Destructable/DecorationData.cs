@@ -14,6 +14,10 @@ namespace Decorations
 
         [SerializeField] private float scoreValue;
         public float ScoreValue{ get { return scoreValue; } }
+
+        [SerializeField] private Vector3 visualOffset;
+        public Vector3 VisualOffset { get { return visualOffset; } }
+
     }
 
     [System.Serializable]

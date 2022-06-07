@@ -28,6 +28,8 @@ namespace PlayerControlls
                 idx = i;
                 if (rng <= this.Weapons[i].Chance)
                     return this.Weapons[i].Weapon;
+
+                rng -= this.Weapons[i].Chance;
             }
 
             return this.GetWeaponData(idx);

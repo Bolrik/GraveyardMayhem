@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce1d914105d36084bb3efaaa1bda9499, type: 2}
   - {fileID: 11400000, guid: 7ce44e613e8a6da47b9e97ddc5722807, type: 2}
   - {fileID: 11400000, guid: bd6a19f045e365a489016cb73eee66a7, type: 2}
+  - {fileID: 11400000, guid: 2a4715a074be71145b235f9b5c0e1e30, type: 2}
   prefab: {fileID: 641136632893337985, guid: 395f5664066193c4897104d1a9b75566, type: 3}
   countdown: 60
-  spawnCount: 5
+  spawnCount: 8

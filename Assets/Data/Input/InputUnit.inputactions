@@ -134,7 +134,7 @@
                     "id": "0733154d-6c5a-473c-939d-79e7b7d9e834",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=2)",
                     "groups": "",
                     "action": "ViewDelta",
                     "isComposite": false,

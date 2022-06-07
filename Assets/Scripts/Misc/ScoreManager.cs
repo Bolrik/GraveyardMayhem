@@ -19,9 +19,13 @@ namespace Misc
         [SerializeField] private FloatReference waveCountdown;
         public FloatReference WaveCountdown { get { return waveCountdown; } }
 
+        public bool IsActive { get; set; } = true;
 
         public void Add(IScoreItem scoreItem)
         {
+            if (!this.IsActive)
+                return;
+
             float value = scoreItem.ScoreValue;// Mathf.Max(scoreItem.ScoreValue * this.WaveCountdown.Value, scoreItem.ScoreValue);
 
             this.Score.Value += value;

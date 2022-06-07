@@ -20,14 +20,14 @@ namespace Enemies
         [SerializeField] private bool isActive;
         public bool IsActive { get { return isActive; } private set { isActive = value; } }
 
-        [SerializeField] private int wave;
-        public int Wave { get { return wave; } private set { wave = value; } }
-
         [SerializeField] private FloatVariable countdown;
         public FloatVariable Countdown { get { return countdown; } }
 
         [SerializeField] private PlayerReference player;
         public PlayerReference Player { get { return player; } }
+
+        [SerializeField] private IntVariable wave;
+        public IntVariable Wave { get { return wave; } }
 
 
 
@@ -36,6 +36,7 @@ namespace Enemies
 
         private void Start()
         {
+            this.Wave.Value = 0;
             this.Countdown.Value = 3;
         }
 
@@ -90,7 +91,7 @@ namespace Enemies
                 }
             }
 
-            this.Wave++;
+            this.Wave.Value++;
             this.Countdown.Value = this.Data.Countdown;
         }
 

@@ -108,7 +108,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -129,7 +129,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -150,7 +150,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -171,7 +171,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 90
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -192,7 +192,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -213,7 +213,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
@@ -234,7 +234,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
@@ -255,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
@@ -276,7 +276,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 90
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
@@ -297,7 +297,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
@@ -318,7 +318,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
@@ -339,7 +339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
@@ -360,7 +360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
@@ -381,7 +381,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 90
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
@@ -402,7 +402,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
@@ -423,7 +423,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -444,7 +444,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
@@ -465,11 +465,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,11 +486,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 216
+        y: 240
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -507,11 +507,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -528,11 +528,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -549,11 +549,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -570,11 +570,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 176
+        y: 200
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -591,11 +591,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -612,11 +612,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -633,11 +633,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -654,11 +654,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 136
+        y: 160
         width: 30
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,6 +666,174 @@ TextureImporter:
       bones: []
       spriteID: 3b460dbb9698c414eb8a9ea579f03d22
       internalID: 1520507631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32cd6d68d49c384eb1748fd21863075
+      internalID: 84292350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 80
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3a23bd928bf8f41bfa36e635b7e47a
+      internalID: -2066785430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 80
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62d40272b848174990229ed90380ae6
+      internalID: -603929559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 80
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0433efcae5216214f8d224a1fd9972d0
+      internalID: -1640450774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7068557c879152542865a0f4354ec7e5
+      internalID: -1416127918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28cfb481d9a3d14db8b1344549ea8d1
+      internalID: 112195307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c291776187c234e86d63a177245213
+      internalID: 2009223555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffee8538bccbec4eb9c0f49207292ca
+      internalID: -1044077680
       vertices: []
       indices: 
       edges: []
@@ -681,10 +849,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Enemy_Spritesheet_28: -2066785430
       Enemy_Spritesheet_25: -1252689906
       Enemy_Spritesheet_7: 912211067
       Enemy_Spritesheet_18: 879843233
+      Enemy_Spritesheet_30: -1640450774
       Enemy_Spritesheet_6: 1153612207
+      Enemy_Spritesheet_33: 2009223555
       Enemy_Spritesheet_8: -766484209
       Enemy_Spritesheet_26: 1520507631
       Enemy_Spritesheet_14: 92793510
@@ -697,14 +868,19 @@ TextureImporter:
       Enemy_Spritesheet_0: 2008380805
       Enemy_Spritesheet_16: 1016875844
       Enemy_Spritesheet_19: -1326295602
+      Enemy_Spritesheet_29: -603929559
       Enemy_Spritesheet_9: -787624645
       Enemy_Spritesheet_17: 1566771888
       Enemy_Spritesheet_23: -1467780275
       Enemy_Spritesheet_24: -294348853
+      Enemy_Spritesheet_27: 84292350
+      Enemy_Spritesheet_32: 112195307
       Enemy_Spritesheet_1: 176293511
       Enemy_Spritesheet_21: -186879004
       Enemy_Spritesheet_5: -303852399
       Enemy_Spritesheet_2: -941776392
+      Enemy_Spritesheet_34: -1044077680
+      Enemy_Spritesheet_31: -1416127918
       Enemy_Spritesheet_11: -711489847
       Enemy_Spritesheet_13: -617343522
       Enemy_Spritesheet_15: 1888490245

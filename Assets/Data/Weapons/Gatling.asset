@@ -17,10 +17,11 @@ MonoBehaviour:
     m_Bits: 64
   spread: 0.1
   bullets: 2
-  cooldown: 0.025
+  cooldown: 0.05
   recoilTime: 0.01
   distance: 40
-  ammo: 200
+  ammo: 120
+  clip: {fileID: 8300000, guid: ddc25dde9f859304cb49fc2cfd737e08, type: 3}
   bulletDamage: 3
   damageReductionPerDistance: 0.01
   spriteTint: {r: 1, g: 1, b: 1, a: 1}

@@ -20,10 +20,15 @@ MonoBehaviour:
   hitPointsHead: 5
   hitPointsBody: 5
   hitPointsFeet: 5
-  speed: 1.5
+  speed: 2
+  speedPerWave: 0.01
   damage: 5
   visuals: {fileID: 11400000, guid: 355354195e2e50e488e7f151ece06715, type: 2}
   scoreValue: 15
+  clips:
+  - {fileID: 8300000, guid: 34612d5ae2a677d48991992f9c4721be, type: 3}
+  - {fileID: 8300000, guid: 811e9f07349b26148882135bcd1a7f30, type: 3}
+  - {fileID: 8300000, guid: d78ce45873343b84293d1154c52fc224, type: 3}
   headOffset: {x: 0, y: 1.25, z: 0}
   headScale: {x: 0.9, y: 0.8, z: 0.1}
   bodyOffset: {x: 0, y: 0.55, z: 0}

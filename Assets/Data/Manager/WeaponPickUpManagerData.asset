@@ -15,5 +15,6 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: c53d19e8733748e4fb0005c09c746daf, type: 2}
   - {fileID: 11400000, guid: f8a414855c42b94458d84215c3ced055, type: 2}
+  - {fileID: 11400000, guid: 3850f48e38eb6624ea26304bf9e4ae79, type: 2}
   weapon: {fileID: 2115087040142469593, guid: d6190589da5f17a4b976b2f3052eeb9c, type: 3}
-  spawnTime: 30
+  spawnTime: 8

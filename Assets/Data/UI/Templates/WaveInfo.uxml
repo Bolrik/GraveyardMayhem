@@ -5,7 +5,8 @@
             <ui:VisualElement name="ProgressContent" style="height: 70px; justify-content: flex-start; padding-bottom: 0; background-color: rgb(54, 101, 79); border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; width: 100%; overflow: visible; visibility: visible; flex-shrink: 1;" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-direction: row; align-items: center; justify-content: flex-start; height: 60px;">
-            <ui:Label text="Next Wave: " display-tooltip-when-elided="true" name="WaveCountdown" class="game-text" style="align-items: center; -unity-text-align: middle-left; font-size: 40px; height: 60px; margin-left: 70px; flex-direction: column; justify-content: center;" />
+            <ui:Label text="Next Wave" display-tooltip-when-elided="true" name="WaveCountdown" class="game-text" style="align-items: center; -unity-text-align: middle-left; font-size: 40px; height: 60px; margin-left: 70px; flex-direction: column; justify-content: center;" />
+            <ui:Label text="(000):" display-tooltip-when-elided="true" name="WaveInfoValue" class="game-text" style="align-items: center; -unity-text-align: middle-left; font-size: 40px; height: 60px; margin-left: 10px; flex-direction: column; justify-content: center;" />
             <ui:Label text="000" display-tooltip-when-elided="true" name="WaveCountdownText" class="game-text" style="height: 60px; margin-left: 20px; justify-content: center; align-items: flex-start; flex-direction: column;" />
         </ui:VisualElement>
     </ui:VisualElement>
